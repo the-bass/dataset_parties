@@ -1,14 +1,14 @@
 # Dataset Parties
 
-Provides methods to split a *PyTorch* dataset (i.e. an instance of `torch.utils.data.Dataset`) into several subsets.
+Provides methods to split a dataset into several subsets for training, development, testing etc.
 
-Tested with
+Last tested with
  - PyTorch 0.4
  - Python 3.6.4 :: Anaconda, Inc.
 
 ## Usage example
 
-Let `dataset` an instance of `torch.utils.data.Dataset`, then you can
+Let `dataset` an instance of `list`, `torch.utils.data.Dataset` or another iterable class, then you can do
 
 ```py
 import dataset_parties
@@ -16,12 +16,13 @@ import dataset_parties
 train_set, dev_set, test_set = dataset_parties.ng_style(dataset)
 ```
 
-to split the dataset into train, dev and test set. All new datasets are themselves instances of `torch.utils.data.Dataset`.
+to split the dataset into train, dev and test set. All new datasets are instances of `torch.utils.data.Dataset`.
 
 ## Partitioning methods
 
 ### `ng_style(dataset)`
-Splits the given dataset into train, dev and test set, where dev and test sets each hold 20%, but not more than 10,000 samples.
+
+Splits the given dataset into train, dev and test set, where dev and test sets each hold 20%, but no more than 10,000 samples.
 
 ## Development
 
